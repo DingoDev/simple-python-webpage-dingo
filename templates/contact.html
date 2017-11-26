@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="top">
+
+        </div>
+        <div class="navigation">
+            <button id="nav-burger" class="nav-burger"></button>
+            <div class="nav-bar">
+                <div class="nav-button">
+                    <a class="nav-link" href="/">Home</a>
+                </div>
+                <div class="nav-buton">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </div>
+            </div>
+            <div class="body">
+                <div class="left-information">
+                    <div class="contact-field">
+
+                    </div>
+                </div>
+                <div class="right-information">
+                    <div class="notable-link"></div>
+                    <div class="social-feed"></div>
+                </div>
+            </div>
+            <div class="footer">
+
+            </div>
+            <script src="{{ url_for('static', filename='home.js') }}"></script>
+        </div>
+    </body>
+</html>
