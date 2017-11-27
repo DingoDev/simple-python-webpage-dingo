@@ -34,6 +34,24 @@ DATABASE = SQLAlchemy(APPLICATION)
 
 CONFIG = {'port': 5000}
 
+# DATABASE RELATIONSHIPS
+
+class Article_list(DATABASE.model):
+    __tablename__ = 'Article_list'
+    articles = DATABASE.relationship('Article', backref='article_list')
+    
+class Article(DATABASE.model):
+    __tablename__ = 'Article'
+    content = DATABASE.Column(DATABASE.integer, primary_key=True)
+
+class Role(DATABASE.model):
+    __tablename__ = 'Roles'
+    users = DATABASE.relationship('User', backref='Role')
+
+class User(DATABASE.model):
+    __tablename__ = 'User'
+    username = DATABASE.Column(DATABASE.integer, primary_key=True)
+
 # GET ROUTING
 
 @APPLICATION.route('/')
@@ -68,6 +86,8 @@ def search_article():
     """ TODO """
     return -1
 
+@APPLICATION.route('/create', methods=['POST'])
+# login required
 def create_article():
     """ TODO """
     return -1
