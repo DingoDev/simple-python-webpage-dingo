@@ -32,9 +32,13 @@ def get_articles():
     """ TODO """
     return -1
 
+@APPLICATION.route('/article/<id>')
 def serve_article():
     """ TODO """
-    return -1
+    # Get article content
+    articles = {'123964': '<h2>This is a new article</h2>'}
+    content = articles['123964']
+    return render_template("article.html", content=content)
 
 def search_article():
     """ TODO """
