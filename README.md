@@ -27,6 +27,7 @@ To run the app, go into the terminal and type
 python3 ./server.py
 
 PICTURES
+
 If you want to store your own images on the server instead of some
 content storage. Then place all images inside the static folder and
 copy the url_for used for styling and javascript.
