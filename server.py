@@ -1,7 +1,14 @@
 """ Base server to run on Flask """
 import hashlib
-from flask import Flask, abort, flash, redirect, render_template, request, url_for
 import sys
+
+try:
+    from flask import Flask, abort, flash, redirect, render_template, request, url_for
+except Exception:
+    import pip
+    pip.main(['install', '--user', 'flask'])
+    from flask import Flask, abort, flash, redirect, render_template, request, url_for
+
 
 APPLICATION = Flask(__name__)
 
@@ -48,6 +55,8 @@ def authenticate(request_rec):
 
     # user = users[request.headers['username']]
     user = users['user']
+    if not user:
+        return False
 
     sha256 = hashlib.sha256(request_rec.headers['password']).hexdigest()
 
@@ -60,7 +69,7 @@ def authenticate(request_rec):
     return authenticated
 
 def read_config():
-    """ TODO """
+    """ Read the server.config file and update the CONFIG dictionary """
     try:
         with open("server.config") as config:
             for conf in config.readlines():
